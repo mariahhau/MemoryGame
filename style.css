@@ -1,0 +1,174 @@
+* {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --cardWidth: 14rem;
+  --cardHeight: 14rem;
+}
+
+body {
+  padding: 1rem;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient(rgb(255, 255, 255), rgb(255, 153, 221));
+}
+
+img {
+  width: var(--cardWidth);
+  height: var(--cardHeight);
+  border-radius: 8px;
+  opacity: 0;
+  animation-delay: 0s;
+}
+
+.card {
+  display: block;
+  max-width: var(--cardWidth);
+  max-height: var(--cardHeight);
+  background-color: hsla(323, 49%, 26%, 0.75);
+  border-radius: 8px;
+}
+
+.grid {
+  height: fit-content;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 2px 2px;
+}
+
+@media (min-width: 400px) {
+  .grid.size5,
+  .grid.size8,
+  .grid.size12 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 600px) {
+  .grid.size5 {
+    grid-template-areas: ". . . . ." ". . . . .";
+  }
+}
+
+.grid.size8,
+.grid.size12 {
+  grid-template-areas:
+    ". . . . . . . ."
+    ". . . . . . . .";
+}
+
+.found {
+  opacity: 0;
+  pointer-events: none;
+}
+
+button {
+  margin-top: 30px;
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 10px;
+  display: flex;
+  font-size: 16px;
+  height: 48px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+}
+
+button:after {
+  background-color: rgb(75, 18, 72);
+  border-radius: 10px;
+  content: "";
+  display: block;
+  height: 48px;
+  right: -5%;
+  width: 110%;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+}
+
+button:hover:after {
+  display: none;
+}
+
+button:hover {
+  background-color: #ebcac6;
+  outline: 0;
+}
+
+.radiobutton {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 6px;
+}
+
+fieldset {
+  border: 0;
+}
+
+input {
+  margin: 0.4rem;
+  vertical-align: middle;
+}
+
+label {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: large;
+}
+
+.show {
+  animation-name: imageAnimation;
+  animation-play-state: running;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.animation {
+  float: left;
+}
+
+.animation5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.animation8 {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+.animation12 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@keyframes imageAnimation {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+}
